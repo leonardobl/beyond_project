@@ -1,0 +1,11 @@
+/* * { box-sizing: border-box; } */
+.btn_roxo{
+  background: #4621AD;
+  border: #4621AD;
+  
+}
+
+.btn_roxo:hover{
+  background: #421da7;
+  color: #47A4AD;
+}

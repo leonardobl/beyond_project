@@ -1,0 +1,11 @@
+.btn-prof{
+  border: 2px solid #4621AD;
+  padding: 15px 15px;
+  border-radius: 25px;
+  color: #4621AD;
+  
+}
+
+.btn-prof:hover{
+  border-color: #47A4AD;
+}

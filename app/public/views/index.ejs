@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<!-- HEAD -->
+<%- include ("partials/head") %>
+
+<body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+  
+  <!-- MENU BAR -->
+  
+  <%- include ("partials/nav") %>
+  
+  <!-- HERO -->
+  <section class="hero d-flex flex-column justify-content-center align-items-center" id="home">
+    <div class="bg-overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto col-12">
+          <div class="hero-text mt-5 text-center">
+            <br>
+            <h1 class="text-white mt-5" data-aos="fade-up" data-aos-delay="500">Bem-vindo</h1>
+            <p class="p-header" data-aos="fade-up" data-aos-delay="300">
+              A clínica BeyondTherapy oferece todos os seus serviços com cuidado e atenção. Venha saber como podemos beneficiar crianças, adolescentes, adultos e idosos em suas demandas, sentimentos, entre tantas questões emocionais.
+            </p>
+          </div>      
+        </div>       
+        <div class="col-12">
+          <div class="mt-3 mb-4 text-center">
+            <img class="grupo " src="images/grupo2.png" alt="">
+          </div>
+          <div class="text-center hero-text">
+            <a href="#contact" class="btn custom-btn bordered mt-3" data-aos="fade-up" data-aos-delay="700">Agendar Consulta</a>
+            <br> 
+            <a href="#sobre" class="btn custom-btn mt-1" data-aos="fade-up" data-aos-delay="600"> <i class="fa fa-angle-double-down" ></i></a>
+          </div>
+        </div>        
+      </div>
+    </div>
+  </section>
+  
+  
+  <section class="feature" id="sobre">
+    <div class="container">
+      <div class="row">
+        <div class="mt-lg-5 mb-lg-0 mb-2 col-lg-6 col-md-10 col-12">
+          <h5 class="text-style mb-3" data-aos="fade-up"><strong>SOBRE NÓS</strong></h5>
+          <p class="text-style" data-aos="fade-up" data-aos-delay="200">
+            A <strong>BeyondTherapy</strong> nasceu com o propósito de promover saúde, bem-estar e reflexões sobre a busca dos melhores caminhos para se ter uma vida plena e saudável.
+          </p>
+          <!-- <h5 class="text-style mb-4" data-aos="fade-up"><strong>VISÃO SOCIAL</strong></h5> -->
+          <p class="text-style" data-aos="fade-up" data-aos-delay="200">
+            Acreditamos que o indivíduo possui saúde física e mental quando as áreas importantes da vida pessoal, profissional, afetiva, financeira e social estão em equilíbrio. Quando há o desequilíbrio, a pessoa entra em estado de adoecimento, sendo necessário recuperar a saúde.
+          </p>
+          <p class="text-style" data-aos="fade-up" data-aos-delay="200">
+            A Clínica Beyond Therapy possui profissionais capacitados em diversas áreas, como: psicologia, nutrição, fisioterapia e fonoaudiologia, para cuidar de sua mente e de seu corpo, ajudando na melhora de sua qualidade de vida.
+          </p>
+          <p class="text-style" data-aos="fade-up" data-aos-delay="300">
+            Queremos fazer parte de sua vida e promover uma experiência Beyond Therapy (Além da Terapia). Vamos nos cuidar?
+          </p>
+        </div>
+        <div class="mt-5 col-lg-4 col-md-6 col-12 justify-content-center align-items-center">
+          <div class="mt-4" data-aos="fade-up" data-aos-delay="300">
+            <iframe class="video-pro"  width="530" height="315" src="https://www.youtube.com/embed/lEm_wrhKdUU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="row ">
+        <div class="mt-lg-5 mb-lg-0 mb-2 col-lg-6 col-md-10 col-12">
+          <h5 class="text-style mb-3" data-aos="fade-up"><strong>VALORES</strong></h5>
+          
+          <p class="text-style" data-aos="fade-up" data-aos-delay="200">
+            Nossos valores direcionam nossas práticas e nosso modo de viver, para tanto, são:
+          </p>
+          <br>
+          <p class="text-style" data-aos="fade-up" data-aos-delay="200">
+            Nossa clínica baseia-se na nossa prestação de serviço. Todo ser humano é importante, seja o profissional ou o paciente, por isso trataremos todos com respeito, em um clima de harmonia, à luz da ética, cuidando da dor do outro com responsabilidade e profissionalismo.
+          </p>
+        </div>
+        <div class="mt-5 col-lg-4 col-md-6 col-12 ">
+          <img  class="img-beyon" src="./images/beyon.png" alt="" data-aos="fade-up" data-aos-delay="300">
+          <ul class="mt-3 list-visao" data-aos="fade-up" data-aos-delay="300">
+            <li>Respeito</li>
+            <li>Responsabilidade</li>
+            <li>Harmonia</li>
+            <li>Ética</li>
+            <li>Cuidado</li>
+            <li>Profissionalismo</li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center justify-content-center mt-1 hero-text">
+        <a href="#prof" class="btn custom-btn-second mt-3" data-aos="fade-up" data-aos-delay="600"> <i class="fa fa-angle-double-down" ></i></a>
+      </div>
+    </div>
+  </section>
+  
+
+  <% if(profissionais.length > 0){ %> 
+
+    
+    <!-- PROFISSIONAIS -->
+    <section class="class section" id="prof">
+      <div class="container">
+        <div class="row mb-5">
+          
+          <div class="col-lg-12 col-12 text-center mb-5">
+            <h3 data-aos="fade-up" data-aos-delay="200">Profissionais</h3>
+          </div>
+          
+        <% profissionais.forEach( profissional => { %>
+
+          <div class="mt-5 mt-lg-0 mt-md-0 col-lg-3 col-md-6 col-12 my-3" data-aos="fade-up" data-aos-delay="400">
+            <div class="class-thumb">
+              <img src="img/uploads/<%= profissional.filename %>" class="img-fluid" alt="Class">
+              <div class="class-info">
+                <h3 class="mb-1"><%= profissional.nome.split(" ")[0] + " " + profissional.nome.split(" ")[ profissional.nome.split(" ").length - 1 ] %></h3>
+                <p>
+                  <strong ><%= profissional.especialidade %></strong> 
+                  <br>
+                  <strong><%= profissional.sigla %> - </strong>
+                  <%= profissional.num_cr %>
+                </p>
+                <button class="btn-beyon" data-toggle="modal" data-target="#prof<%= profissional.id %>">Saiba mais</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal fade" id="prof<%= profissional.id %>" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h6 class="modal-title cor_padrao"><%= profissional.nome %></h6>
+                  
+                  <button type="button" class="close" data-dismiss="modal">
+                    <span>&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body mt-2">
+                  <img src="img/uploads/<%= profissional.filename %>" class="img-fluid" alt="Class">
+                  <p class="mt-3">
+                    <%= profissional.descricao %>
+                  </p>
+                </div>
+                <div class="modal-footer mt-3">
+                  <button type="button" class="btn btn-beyon" data-dismiss="modal">Fechar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        <%  } ) %>  
+          
+        </div>
+        
+        <div class="text-center">
+          <a href="./profissionais" class="btn-prof" data-aos="fade-up" data-aos-delay="500">Mais Profissionais</a>  
+        </div>
+        
+        <div class="text-center justify-content-center mt-4 hero-text">
+          <a href="#contact" class="btn custom-btn-second mt-3" data-aos="fade-up" data-aos-delay="100"> <i class="fa fa-angle-double-down" ></i></a>
+        </div>
+      </div>
+    </section>
+    <!-- FIM DOS PROFISSIONAIS -->
+    
+
+
+
+  <% } %> 
+  
+
+  <!-- CONTACT -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="row">
+        
+        <div class=" mb-5">
+          <form action="" method="post" class="contact-form webform" data-aos="fade-up" data-aos-delay="400" role="form">
+            <div class="form-row">
+              
+              <div class="col-12 mb-5">
+                <h3 class="text-center">Contato</h3>
+              </div>
+              <div class="ml-auto col-sm-6 ">
+                <h6 class="text-center">
+                  <a  class="link-whatsapp" target="_blank" href="https://wa.me/5586981410405">
+                    (86) 9 8141-0405
+                    <i class="fa fa-whatsapp mr-1"></i>
+                  </a>
+                </h6>
+              </div>
+              
+              <div class="ml-auto col-sm-6 mb-4">
+                <h6 class="">
+                  <a class="link-whatsapp" href="mailto:beyondtherapy20@gmail.com">
+                    beyondtherapy20@gmail.com
+                    <i class="fa fa-envelope-o mr-1"></i>
+                  </a>    
+                </h6>
+              </div>
+              
+              <div class="form-group col-sm-6">
+                <label for="inputNome">Primeiro Nome</label>
+                <input type="text" class="form-control" placeholder="Digite seu primeiro nome">
+              </div>
+              
+              <div class="form-group col-sm-6">
+                <label for="inputNome">Segundo Nome</label>
+                <input type="text" class="form-control" placeholder="Digite seu segundo nome">
+              </div>
+              
+              <div class="form-group col-sm-6">
+                <label for="inputNome">E-mail</label>
+                <input type="text" class="form-control" placeholder="Digite seu Email">
+              </div>
+              
+              <div class="form-group col-sm-6">
+                <label for="inputNome">Telefone</label>
+                <input type="text" class="form-control" placeholder="Digite seu Telefone">
+              </div>
+              
+              <label for="inputNome">Mensagem</label>
+              <textarea class="form-control" rows="5" name="cf-message" placeholder="Digite sua mensagem"></textarea>
+              <button type="submit" class="form-control" id="submit-button" name="submit">Enviar</button>
+              
+            </div>
+          </form>
+        </div>    
+        
+        <div class="mx-auto  mt-lg-0 mt-md-0 col-12">
+          
+          <div class="google-map" data-aos="fade-up" data-aos-delay="200">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.6984661052106!2d-42.80347831787158!3d-5.078309367215363!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x78e39e95a7a6973%3A0xb9f3205e282468ea!2sShopping%20Rio%20Poty!5e0!3m2!1spt-BR!2sus!4v1618176507933!5m2!1spt-BR!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>   
+            <p class="location-text" data-aos="" data-aos-delay=""><i class="fa fa-map-marker mr-1 mt-3"></i> Rua  Mato Grosso, 760, Sala 603, Porenquanto, Shopping Rio Poty, Teresina/PI</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="membershipForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h2 class="modal-title" id="membershipFormLabel">Membership Form</h2>
+          
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        
+        <div class="modal-body">
+          <form class="membership-form webform" role="form">
+            <input type="text" class="form-control" name="cf-name" placeholder="John Doe">
+            <input type="email" class="form-control" name="cf-email" placeholder="Johndoe@gmail.com">
+            <input type="tel" class="form-control" name="cf-phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+            <textarea class="form-control" rows="3" name="cf-message" placeholder="Additional Message"></textarea>
+            <button type="submit" class="form-control" id="submit-button" name="submit">Enviar</button>
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="signup-agree">
+              <label class="custom-control-label text-small text-muted" for="signup-agree">I agree to the <a href="#">Terms &amp;Conditions</a>
+              </label>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer"></div>
+        
+      </div>
+    </div>
+  </div>
+  
+  <!-- SCRIPTS -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/smoothscroll.js"></script>
+  <script src="js/custom.js"></script>
+  
+</body>
+</html>
