@@ -4,7 +4,7 @@ const model_profissionais = require("../models/profissionais_DAO")
 
 
 router.get("/", (req, res) => {
-  model_profissionais.findAll().then( profissionais => {
+  model_profissionais.findAll({limit:8}).then( profissionais => {
     res.render("index", { profissionais })
   } )
 })
