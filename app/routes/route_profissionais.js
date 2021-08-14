@@ -16,18 +16,34 @@ router.post("/novo_profissional", multer(multerConfig).single("foto"), async (re
   
 })
 
+router.post("/update_profissional", (req, res) => {
+  var { filename } = req.body
+  console.log(filename)
+  res.redirect("/novo_profissional")
+})
 
 router.get("/novo_profissional", (req, res)=>{
   model_categorias.findAll().then( categorias =>{
-    res.render("new_professional", { categorias })
+    model_profissionais.findAll().then( profissionais => {
+      res.render("admin/profissionais/new_professional", { categorias, profissionais })
+    } )
   })
 } )
+
+
+router.get("/edit_profissional/:id", (req, res) => {
+  var id = req.params.id
+  model_profissionais.findOne({ where: {id} }).then( prof => {
+    model_categorias.findAll().then( categorias => {
+      res.render("admin/profissionais/edit_profissional", { prof, categorias })
+    } )
+  } )
+})
 
 
 router.get("/profissionais", (req, res) =>{
   model_categorias.findAll().then( categorias => {
     model_profissionais.findAll({ include: model_categorias }).then( profissionais => {
-      console.log(profissionais)
       res.render("profissionais", { categorias, profissionais })
     } )
   } )

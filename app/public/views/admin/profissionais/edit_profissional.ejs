@@ -5,27 +5,27 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-  <title>Novo Profissional</title>
+  <title>Edição de profissional</title>
 </head>
 <body>
   <div class="container">
     <div class="card my-5">
       <div class="card-header">
-        <h1 class="text-center">Cadastro De Profissional</h1>
+        <h1 class="text-center">Edição De Profissional</h1>
       </div>
       <div class="card-body">
-        
-        <form method="POST" action="/novo_profissional" class="needs-validation" enctype="multipart/form-data">
+
+        <form method="POST" action="/update_profissional" class="needs-validation" enctype="multipart/form-data">
           <div class="form-row">
             
             <div class="col-md-6 mb-3">
               <label for="validationCustom01">Nome Do Profissional</label>
-              <input placeholder="Nome Completo" name="nome" type="text" class="form-control" id="validationCustom01" required>
+              <input placeholder="Nome Completo" name="nome" type="text" class="form-control" id="validationCustom01" required value="<%= prof.nome %>">
             </div>
             
             <div class="col-md-6 mb-3">
               <label for="validationCustom02">Especialidade</label>
-              <input name="especialidade" placeholder="Clinico Geral" type="text" class="form-control" id="validationCustom02" required>
+              <input name="especialidade" placeholder="Clinico Geral" type="text" class="form-control" id="validationCustom02" required value="<%= prof.especialidade %>">
             </div>
             
           </div>
@@ -52,33 +52,34 @@
             
             <div class="col-md-2 mb-3">
               <label for="validationCustom03">N Conselho Regional</label>
-              <input name="num_cr" type="text" class="form-control" id="validationCustom03" placeholder="000/00000" required>
+              <input name="num_cr" type="text" class="form-control" id="validationCustom03" placeholder="000/00000" required value="<%= prof.num_cr %>"> 
             </div>
             
             <div class="col-md-1 mb-3">
               <label for="validationCustom03">Sigla</label>
-              <input name="sigla" type="text" class="form-control" id="validationCustom03" placeholder="CRM" required>
+              <input name="sigla" type="text" class="form-control" id="validationCustom03" placeholder="CRM" required value="<%= prof.sigla %>">
             </div>
             
             <div class="col-md-6 mb-3 custom-file">
               <label  for="validationCustom03">Foto De Perfil</label>
-              <input name="foto" type="file" accept="image/*" class="form-control p-1" id="validationCustom03" enctype="multipart/form-data" required>
+              <input name="foto" type="file" accept="image/*" class="form-control p-1" id="validationCustom03" enctype="multipart/form-data" value="<%= prof.filename %>">
             </div>
             
           </div>
           
           <div>
             <label for="descricao">Descrição do Profissional</label>
-            <textarea class="form-control" name="descricao" id="descricao" cols="30" rows="10" required></textarea> 
+            <textarea class="form-control" name="descricao" id="descricao" cols="30" rows="10" required><%= prof.descricao %></textarea> 
           </div>
           <br>
-          <input class="btn btn-primary" type="submit" value="Adicionar">
+          <input class="btn btn-primary" type="submit" value="Atualizar">
         </form>
-        
+      
       </div>
       
     </div>
-    
+
+
   </div>
   
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
