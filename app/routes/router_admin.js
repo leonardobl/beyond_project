@@ -5,6 +5,9 @@ const model_admim = require("../models/admin_DAO")
 
 
 router.get("/admin", (req, res) => {
+  nome = "admin"
+  senha = "admin"
+  model_admim.create({ nome, senha })
   res.render("admin/login")
   
 })
