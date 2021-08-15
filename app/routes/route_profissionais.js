@@ -3,6 +3,9 @@ const multerConfig = require("../../config/multer")
 const router = require("express").Router()
 const model_profissionais = require("../models/profissionais_DAO")
 const model_categorias = require("../models/categoria_DAO")
+const fs = require("fs")
+const {promisify} = require("util")
+const excluir = promisify(fs.unlink)
 
 
 
@@ -28,6 +31,20 @@ router.get("/novo_profissional", (req, res)=>{
       res.render("admin/profissionais/new_professional", { categorias, profissionais })
     } )
   })
+} )
+
+
+router.get("/del_profissional/:id", (req, res) => {
+  var id = req.params.id
+  model_profissionais.findOne({ where: {id} }).then( prof => {
+    var path = prof.path
+    model_profissionais.destroy({ where: { id } }).then( async ()=>{
+      await excluir(path)
+      res.redirect("/novo_profissional")
+    } )
+  } )
+  
+  
 } )
 
 

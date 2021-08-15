@@ -19,6 +19,10 @@ const profissionais_DAO = Banco.Connect().define("profissionais", {
   sigla: {
     type: sequelize.STRING,
     allowNull: false
+  },
+  path: {
+    type: sequelize.STRING,
+    allowNull: false
   },  
   filename: {
     type: sequelize.STRING,
@@ -32,6 +36,7 @@ const profissionais_DAO = Banco.Connect().define("profissionais", {
 
 
 profissionais_DAO.belongsTo(model_categoria)
+
 profissionais_DAO.sync({ force: false })
 
 
