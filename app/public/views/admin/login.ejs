@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <link rel="stylesheet" href="css/login.css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <title>Admin Login</title>
+</head>
+<body>
+  <div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+      
+      <!-- Icon -->
+      <div class="fadeIn first my-5">
+        <img src="../../images/beyon.png" id="icon" alt="User Icon" />
+      </div>
+      
+      <!-- Login Form -->
+      <form method="POST" action="/admin/login">
+        <input type="text" id="login" class="fadeIn second" name="nome" placeholder="Usuario">
+        <input type="password" id="password" class="fadeIn third" name="senha" placeholder="Senha">
+        <input type="submit" class="fadeIn fourth" value="Log In">
+      </form>
+      
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Esqueceu sua senha ?</a>
+      </div>
+      
+    </div>
+  </div>
+</body>
+</html>
+

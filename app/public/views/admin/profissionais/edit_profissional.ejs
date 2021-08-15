@@ -35,13 +35,16 @@
             <div class="col-md-3 mb-3">
               <label for="validationCustom04">Categoria</label>
               <select name="categoriaId" class="custom-select" id="categoria" required>
-                <option selected disabled value="">Selecione a categoria</option>
+                <option disabled value="">Selecione a categoria</option>
                 <% if(categorias.length > 0) { %> 
 
                   <% categorias.forEach( categoria => { %>
 
-                    <option value="<%= categoria.id %>"><%= categoria.nome %></option>
+                    <% if(prof.categoriaId == categoria.id){ %>
+                      <option selected value="<%= categoria.id %>"><%= categoria.nome %></option>
+                    <% } %>  
                     
+                    <option value="<%= categoria.id %>"><%= categoria.nome %></option>
                   <% }) %>
 
 

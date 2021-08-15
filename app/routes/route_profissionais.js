@@ -17,8 +17,8 @@ router.post("/novo_profissional", multer(multerConfig).single("foto"), async (re
 })
 
 router.post("/update_profissional", (req, res) => {
-  var { filename } = req.body
-  console.log(filename)
+  // var { file } = req.body
+  console.log(req.body)
   res.redirect("/novo_profissional")
 })
 
