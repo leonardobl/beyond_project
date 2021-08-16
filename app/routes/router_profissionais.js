@@ -11,18 +11,32 @@ const excluir = promisify(fs.unlink)
 
 router.post("/novo_profissional", multer(multerConfig).single("foto"), async (req, res) =>{
   var { nome, especialidade, num_cr, categoriaId, sigla, descricao } = req.body
-  var filename = req.file.filename
+  var {filename, path} = req.file
   
-  model_profissionais.create({ nome, especialidade, num_cr, categoriaId, sigla, filename, descricao }).then(()=>{
+  model_profissionais.create({ nome, especialidade, num_cr, categoriaId, sigla, filename, path, descricao }).then(()=>{
     res.redirect("/novo_profissional")
   })
   
 })
 
-router.post("/update_profissional", (req, res) => {
-  // var { file } = req.body
-  console.log(req.body)
-  res.redirect("/novo_profissional")
+router.post("/update_profissional", multer(multerConfig).single("foto"), (req, res) => {
+  var id = req.body.id
+  var { nome, especialidade, num_cr, categoriaId, sigla, filename, path, descricao } = req.body
+  if(req.file){
+    model_profissionais.findOne({where: {id}}).then( async prof => {
+      await excluir(prof.path)
+      var { filename, path } = req.file
+      model_profissionais.update( { nome, especialidade, num_cr, categoriaId, sigla, filename, path, descricao }, {where: {id}} ).then( ()=>{
+        res.redirect("/novo_profissional")
+      } )
+    } )
+  }
+  else{
+    model_profissionais.update( { nome, especialidade, num_cr, categoriaId, sigla, filename, path, descricao }, {where: {id}} ).then( ()=>{
+      res.redirect("/novo_profissional")
+    } )
+  }
+  
 })
 
 router.get("/novo_profissional", (req, res)=>{

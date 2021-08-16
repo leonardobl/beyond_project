@@ -5,7 +5,8 @@ class Banco{
     return new sequelize("beyondtherapy", "leonardo", "TH@27*as", {
       host: "localhost",
       dialect: "mysql",
-      timezone: "-03:00"
+      timezone: "-03:00",
+      logging: false
     })
   }
 

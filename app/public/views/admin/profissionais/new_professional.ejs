@@ -15,7 +15,7 @@
       </div>
       <div class="card-body">
         
-        <form method="POST" action="/novo_profissional" class="needs-validation" enctype="multipart/form-data">
+        <form method="POST" action="/novo_profissional" class="needs-validation" onsubmit="validaEnvio(this)" enctype="multipart/form-data">
           <div class="form-row">
             
             <div class="col-md-6 mb-3">
@@ -36,15 +36,11 @@
               <label for="validationCustom04">Categoria</label>
               <select name="categoriaId" class="custom-select" id="categoria" required>
                 <option selected disabled value="">Selecione a categoria</option>
+
                 <% if(categorias.length > 0) { %> 
-
                   <% categorias.forEach( categoria => { %>
-
                     <option value="<%= categoria.id %>"><%= categoria.nome %></option>
-                    
                   <% }) %>
-
-
                 <% } %>
 
               </select>
@@ -129,6 +125,11 @@
         }
       } ))
     } )
+
+
+    function validaEnvio(){
+      alert("Profissional cadastrado com sucesso !")
+    }
 
   </script>
   
