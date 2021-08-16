@@ -5,7 +5,7 @@ const model_profissionais = require("../models/profissionais_DAO")
 const model_categorias = require("../models/categoria_DAO")
 const fs = require("fs")
 const {promisify} = require("util")
-const excluir = promisify(fs.unlink)
+const excluirFoto = promisify(fs.unlink)
 
 
 
@@ -24,7 +24,7 @@ router.post("/update_profissional", multer(multerConfig).single("foto"), (req, r
   var { nome, especialidade, num_cr, categoriaId, sigla, filename, path, descricao } = req.body
   if(req.file){
     model_profissionais.findOne({where: {id}}).then( async prof => {
-      await excluir(prof.path)
+      await excluirFoto(prof.path)
       var { filename, path } = req.file
       model_profissionais.update( { nome, especialidade, num_cr, categoriaId, sigla, filename, path, descricao }, {where: {id}} ).then( ()=>{
         res.redirect("/novo_profissional")
@@ -53,7 +53,7 @@ router.get("/del_profissional/:id", (req, res) => {
   model_profissionais.findOne({ where: {id} }).then( prof => {
     var path = prof.path
     model_profissionais.destroy({ where: { id } }).then( async ()=>{
-      await excluir(path)
+      await excluirFoto(path)
       res.redirect("/novo_profissional")
     } )
   } )

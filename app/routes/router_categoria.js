@@ -4,7 +4,7 @@ const model_categoria = require("../models/categoria_DAO")
 
 router.get("/nova_categoria", (req, res) => {
   model_categoria.findAll({ raw: true }).then( categorias => {
-    res.render("categoria/new_categoria", { categorias })
+    res.render("admin/categoria/new_categoria", { categorias })
   } )
 })
 
@@ -27,7 +27,7 @@ router.post("/update_categoria", ( req, res ) =>{
 router.get("/edit_categoria/:id", (req, res) => {
   var id = req.params.id
   model_categoria.findOne({ where: {id} }).then( categoria =>{
-    res.render("categoria/edit_categoria", { categoria })
+    res.render("admin/categoria/edit_categoria", { categoria })
   } )
 } )
 
