@@ -23,6 +23,8 @@ router.post("/novo_profissional", multer(multerConfig).single("foto"), async (re
 router.post("/update_profissional", multer(multerConfig).single("foto"), (req, res) => {
   var id = req.body.id
   var { nome, especialidade, num_cr, categoriaId, sigla, filename, path, descricao } = req.body
+  nome = nome.trim()
+  
   if(req.file){
     model_profissionais.findOne({where: {id}}).then( async prof => {
       await excluirFoto(prof.path)
