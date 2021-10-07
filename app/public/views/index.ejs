@@ -113,7 +113,7 @@
             <div class="class-thumb">
               <img src="img/uploads/<%= profissional.filename %>" class="img-fluid" alt="Class">
               <div class="class-info">
-                <h3 class="mb-1"><%= profissional.nome.split(" ")[0] + " " + profissional.nome.split(" ")[ profissional.nome.split(" ").length - 1 ] %></h3>
+                <h3 class="mb-1"><%= profissional.nome.trim().split(" ")[0] + " " + profissional.nome.trim().split(" ")[ profissional.nome.trim().split(" ").length - 1 ] %></h3>
                 <p>
                   <strong ><%= profissional.especialidade %></strong> 
                   <br>

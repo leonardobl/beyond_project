@@ -12,7 +12,6 @@ const excluirFoto = promisify(fs.unlink)
 router.post("/novo_profissional", multer(multerConfig).single("foto"), async (req, res) =>{
   var { nome, especialidade, num_cr, categoriaId, sigla, descricao } = req.body
   var {filename, path} = req.file
-  nome = nome.trim()
   
   model_profissionais.create({ nome, especialidade, num_cr, categoriaId, sigla, filename, path, descricao }).then(()=>{
     res.redirect("/novo_profissional")
